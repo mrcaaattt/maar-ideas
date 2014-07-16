@@ -9,9 +9,7 @@ from kivy.uix.button import Button
 from kivy.uix.accordion import Accordion, AccordionItem
 from kivy.garden.navigationdrawer import NavigationDrawer
 
-Builder.load_string("""
-
-""")
+Builder.load_file('https://raw.githubusercontent.com/mrcaaattt/maar-ideas/master/main.kv')
 
 class MyDrop(DropDown):
 	for i in range(5):
