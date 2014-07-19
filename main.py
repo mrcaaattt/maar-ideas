@@ -9,7 +9,7 @@ from kivy.uix.button import Button
 from kivy.uix.accordion import Accordion, AccordionItem
 from kivy.garden.navigationdrawer import NavigationDrawer
 
-Builder.load_file('https://raw.githubusercontent.com/mrcaaattt/maar-ideas/master/main.kv')
+Builder.load_file('main.kv')  #keep main.kv in the same directory
 
 class MyDrop(DropDown):
 	for i in range(5):
