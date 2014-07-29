@@ -9,6 +9,11 @@ from kivy.uix.button import Button
 from kivy.uix.accordion import Accordion, AccordionItem
 from kivy.garden.navigationdrawer import NavigationDrawer
 
+# Settings importing
+from kivy.uix.settings import SettingsWithSidebar  # uncomment to use settings with sidebar
+
+from settingsjson import general_settings
+
 Builder.load_file('main.kv')   # keep main.kv in the same directory
 
 
@@ -61,8 +66,16 @@ sm.add_widget(ToDoScreen(name='todo'))
 sm.add_widget(SketchScreen(name='sketch'))
 
 class MyApp(App):
+
     def build(self):
+        self.settings_cls = SettingsWithSidebar
         return sm
+
+    def build_config(self, config):
+        config.setdefaults('General', {'Open_On_Startup': True})
+
+    def build_settings(self, settings):
+        settings.add_json_panel('General', self.config, data=general_settings)
 
 if __name__ == '__main__':
     MyApp().run()
