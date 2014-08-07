@@ -3,7 +3,7 @@ import json
 general_settings = json.dumps([
     {
         'type': 'title',
-        'title': 'These settings are for you!'
+        'title': 'Basic changes to the app'
     },
     {
         'type': 'bool',

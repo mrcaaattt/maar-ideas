@@ -25,12 +25,25 @@
 			anim_type: 'reveal_below_simple'
 			BoxLayout:
 				orientation: 'vertical'
-				Button:
-					text: 'press me'
 				Label:
-					text: 'do it please'
-				Button: 
-					text: 'you will not regret'
+				    size_hint_y: None
+				    height: "30px"
+				    text: 'MY NOTEBOOKS'
+				BoxLayout:
+				    id: notebooks
+				    orientation: 'vertical'
+                    Button:
+                        text: 'Notebook 1'
+                        min_height: "30px"  # this doesn't work but we somehow have to implement it
+                    Button:
+                        text: 'Notebook 2'
+                    Button:
+                        text: 'Notebook 3'
+				Button:
+				    text: "+"
+				    size_hint_y: None
+				    height: "30px"
+				    on_release: root.create_new_notebook()
 					
 			Carousel:
 				loop: False
@@ -39,6 +52,7 @@
 					id: scrlv
 					size_hint_x: 1
 					TextInput:
+					    on_text:
 						size_hint: 1, None
 						height: max(self.minimum_height, scrlv.height)
 				ScrollView:
@@ -63,11 +77,20 @@
 						height: max(self.minimum_height, scrlv.height)
 					
 	BoxLayout:
-		id: quicksettings
+		id: quicksettings  # Quick settings menu (bold, italics, font-size, etc)
 		height:'40dp'
 		size_hint_y:None
 		Button:
-		Label:
+			markup: True
+		    text: ('[b][color=000000]B[/color][/b]')
+		Button:
+			markup: True
+		    text: ('[i][color=000000]I[/color][/i]')
+		Button:
+		    markup: True
+		    text: ('[u][color=000000]U[/color][/u]')
+		Button:
+		# Label:
 
 <SettingsScreen>:
 	BoxLayout:

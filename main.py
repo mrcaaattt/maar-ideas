@@ -46,6 +46,9 @@ class Notes(Screen, BoxLayout):
 
         self.top_layout.add_widget(mainbutton)
 
+    def create_new_notebook(self):
+        self.ids.notebooks.add_widget(Button(text='New Notebook'))
+
 
 class SettingsScreen(Screen):
     pass
