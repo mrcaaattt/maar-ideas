@@ -54,11 +54,12 @@ class Notes(Screen, BoxLayout):
         nnotebook = ModalView(size_hint=(None, None), size=(400, 60))
         box = BoxLayout(orientation='vertical')
         box.add_widget(Label(text='Name Your New Notebook'))
-        box.add_widget(TextInput())
+        notebookn = TextInput(focus='true', multiline='false')
+        box.add_widget(notebookn)
         nnotebook.add_widget(box)
         nnotebook.open()
-        nnotebook.bind(on_dismiss=self.ids.notebooks.add_widget(Button(text=str(TextInput.text))))  # declare the variable
-        #  return new_notebook
+        nnotebook.bind(on_text_validate=self.ids.notebooks.add_widget(Button(text=str(notebookn.text))))  # declare the variable
+        #return new_notebook
 
     def remove_notebook(self):
         new_notebook = self.create_new_notebook()
