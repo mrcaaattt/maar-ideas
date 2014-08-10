@@ -29,9 +29,10 @@
 				    size_hint_y: None
 				    height: "30px"
 				    text: 'MY NOTEBOOKS'
-				BoxLayout:
-				    id: notebooks
-				    orientation: 'vertical'
+
+                BoxLayout:
+                    id: notebooks
+                    orientation: 'vertical'
                     Button:
                         text: 'Notebook 1'
                         min_height: "30px"  # this doesn't work but we somehow have to implement it
@@ -39,11 +40,25 @@
                         text: 'Notebook 2'
                     Button:
                         text: 'Notebook 3'
-				Button:
-				    text: "+"
+
+				BoxLayout:
+				    id: notebook_mod
 				    size_hint_y: None
-				    height: "30px"
-				    on_release: root.create_new_notebook()
+				    height: '30px'
+
+				    Button:
+				        id: add_notebook_button
+				        text: '+'
+                        size_hint_y: None
+                        height: '30px'
+                        on_release: root.create_new_notebook()
+
+                    Button:
+                        id: remove_notebook_button
+                        text: '-'
+                        size_hint_y: None
+                        height: '30px'
+                        on_release: root.remove_notebook()
 					
 			Carousel:
 				loop: False

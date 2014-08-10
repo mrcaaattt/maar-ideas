@@ -1,17 +1,21 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
+from kivy.properties import ObjectProperty
+
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.dropdown import DropDown
-from kivy.properties import ObjectProperty
+
+from kivy.uix.textinput import TextInput
+from kivy.uix.modalview import ModalView
 from kivy.uix.button import Button
+from kivy.uix.label import Label
+
 from kivy.uix.accordion import Accordion, AccordionItem
 from kivy.garden.navigationdrawer import NavigationDrawer
+from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 
-# Settings importing
-from kivy.uix.settings import SettingsWithSidebar  # uncomment to use settings with sidebar
-
+from kivy.uix.settings import SettingsWithSidebar
 from settingsjson import general_settings
 
 Builder.load_file('main.kv')   # keep main.kv in the same directory
@@ -47,7 +51,16 @@ class Notes(Screen, BoxLayout):
         self.top_layout.add_widget(mainbutton)
 
     def create_new_notebook(self):
-        self.ids.notebooks.add_widget(Button(text='New Notebook'))
+        view = ModalView(size_hint=(None, None), size=(400, 30))
+        view.add_widget(Label(text='Name Your New Notebook'))
+        view.add_widget(TextInput())
+        view.open()
+        view.bind(on_dismiss=self.ids.notebooks.add_widget(Button(text=str(TextInput.text))))  # declare the variable
+        #  return new_notebook
+
+    def remove_notebook(self):
+        new_notebook = self.create_new_notebook()
+        self.ids.notebooks.remove_widget(new_notebook)  # remove the bottom button
 
 
 class SettingsScreen(Screen):
