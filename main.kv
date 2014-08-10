@@ -70,26 +70,7 @@
 					    on_text:
 						size_hint: 1, None
 						height: max(self.minimum_height, scrlv.height)
-				ScrollView:
-					id: scrlv
-					size_hint_x: 1
-					TextInput:
-						size_hint: 1, None
-						height: max(self.minimum_height, scrlv.height)	
-		
-				ScrollView:
-					id: scrlv
-					size_hint_x: 1
-					TextInput:
-						size_hint: 1, None
-						height: max(self.minimum_height, scrlv.height)
-					
-				ScrollView:
-					id: scrlv
-					size_hint_x: 1
-					TextInput:
-						size_hint: 1, None
-						height: max(self.minimum_height, scrlv.height)
+
 					
 	BoxLayout:
 		id: quicksettings  # Quick settings menu (bold, italics, font-size, etc)
@@ -106,61 +87,7 @@
 		    text: ('[u][color=000000]U[/color][/u]')
 		Button:
 		# Label:
-
-<SettingsScreen>:
-	BoxLayout:
-		Label:
-			text: "This is the settings"
-		Button:
-			text: "Back"	
-			on_release: root.manager.current = 'home'
-		
-<ToDoScreen>:
-	BoxLayout:
-		height: "40dp"
-		size_hint_y: 1, 0.5
-		pos_hint: {'x': 0, 'y': .93}
-		Button:
-			text: "Settings"
-			size_hint_x:0.1
-			on_release: root.manager.current = 'settings'
-		Button:
-			text: "Notes"
-			size_hint_x:0.9
-			on_release: root.drop_down.open(self)
 			
-	Label:
-		text: 'To do a to-do'
-	
-	BoxLayout:
-		height:'40dp'
-		size_hint_y:None
-		Button:
-		Label:
-
-<SketchScreen>:
-	BoxLayout:
-		height: "40dp"
-		size_hint_y: 1, 0.5
-		pos_hint: {'x': 0, 'y': .93}
-		Button:
-			text: "Settings"
-			size_hint_x:0.1
-			on_release: root.manager.current = 'settings'
-		Button:
-			text: "Notes"
-			size_hint_x:0.9
-			on_release: root.drop_down.open(self)
-
-	Label: 
-		text: 'Sketch space'
-
-	BoxLayout:
-		height:'40dp'
-		size_hint_y:None
-		Button:
-		Label:
-							
 <MyDrop>:
 	Button:
 		text: 'Notes'

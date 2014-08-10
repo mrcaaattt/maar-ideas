@@ -51,35 +51,22 @@ class Notes(Screen, BoxLayout):
         self.top_layout.add_widget(mainbutton)
 
     def create_new_notebook(self):
-        view = ModalView(size_hint=(None, None), size=(400, 30))
-        view.add_widget(Label(text='Name Your New Notebook'))
-        view.add_widget(TextInput())
-        view.open()
-        view.bind(on_dismiss=self.ids.notebooks.add_widget(Button(text=str(TextInput.text))))  # declare the variable
+        nnotebook = ModalView(size_hint=(None, None), size=(400, 60))
+        box = BoxLayout(orientation='vertical')
+        box.add_widget(Label(text='Name Your New Notebook'))
+        box.add_widget(TextInput())
+        nnotebook.add_widget(box)
+        nnotebook.open()
+        nnotebook.bind(on_dismiss=self.ids.notebooks.add_widget(Button(text=str(TextInput.text))))  # declare the variable
         #  return new_notebook
 
     def remove_notebook(self):
         new_notebook = self.create_new_notebook()
         self.ids.notebooks.remove_widget(new_notebook)  # remove the bottom button
 
-
-class SettingsScreen(Screen):
-    pass
-
-
-class ToDoScreen(Screen):
-    pass
-
-
-class SketchScreen(Screen):
-    pass
-
 sm = ScreenManager(transition=SlideTransition(direction='up'))
 
 sm.add_widget(Notes(name='home'))
-sm.add_widget(SettingsScreen(name='settings'))
-sm.add_widget(ToDoScreen(name='todo'))
-sm.add_widget(SketchScreen(name='sketch'))
 
 class MyApp(App):
 
