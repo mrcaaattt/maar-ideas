@@ -1,54 +1,50 @@
 <Notes@BoxLayout>: 
-	top_layout: topLayout
-	space_text: spacetext
-	quick_settings: quicksettings
-		
-	orientation: "vertical" 
-	BoxLayout:
-		id: topLayout
-		height: "40dp"
-		size_hint_y: None
-		pos_hint: {'top': 1}
-		Button:
-			text: "Settings"
-			size_hint_x:0.1
-			on_release: app.open_settings()  # root.manager.current = 'settings'
-#		Button:
-#			text: "Notes"
-#			size_hint_x:0.9
-#			on_release: root.drop_down.open(self)
+    top_layout: topLayout
+    space_text: spacetext
+    quick_settings: quicksettings
 
-	BoxLayout:
-		padding: 0, 40
-		id: spacetext
-		NavigationDrawer:
-			anim_type: 'reveal_below_simple'
-			BoxLayout:
-				orientation: 'vertical'
-				Label:
-				    size_hint_y: None
-				    height: "30px"
-				    text: 'MY NOTEBOOKS'
+    orientation: "vertical"
+    BoxLayout:
+        id: topLayout
+        height: "40dp"
+        size_hint_y: None
+        pos_hint: {'top': 1}
+        Button:
+            text: "Settings"
+            size_hint_x:0.1
+            on_release: app.open_settings()
+
+    BoxLayout:
+        padding: 0, 40
+        id: spacetext
+        NavigationDrawer:
+            anim_type: 'reveal_below_simple'
+#            BoxLayout:
+#                orientation: 'vertical'
+#                Label:
+#                    size_hint_y: None
+#                    height: "30px"
+#                    text: 'MY NOTEBOOKS'
+
+            BoxLayout:
+                id: notebooks
+                orientation: 'vertical'
+                Button:
+                    text: 'Notebook 1'
+                    min_height: '30px'
+                Button:
+                    text: 'Notebook 2'
+                Button:
+                    text: 'Notebook 3'
 
                 BoxLayout:
-                    id: notebooks
-                    orientation: 'vertical'
-                    Button:
-                        text: 'Notebook 1'
-                        min_height: '30px'  # this doesn't work but we somehow have to implement it
-                    Button:
-                        text: 'Notebook 2'
-                    Button:
-                        text: 'Notebook 3'
+                    id: notebook_mod
+                    size_hint_y: None
+                    height: '30px'
 
-				BoxLayout:
-				    id: notebook_mod
-				    size_hint_y: None
-				    height: '30px'
-
-				    Button:
-				        id: add_notebook_button
-				        text: '+'
+                    Button:
+                        id: add_notebook_button
+                        text: '+'
                         size_hint_y: None
                         height: '30px'
                         on_release: root.create_new_notebook()
@@ -59,48 +55,45 @@
                         size_hint_y: None
                         height: '30px'
                         on_release: root.remove_notebook()
-					
-			Carousel:
-				loop: False
-				#size_hint_x: .85
-				ScrollView:
-					id: scrlv
-					size_hint_x: 1
-					TextInput:
-					    on_text:
-						size_hint: 1, None
-						height: max(self.minimum_height, scrlv.height)
 
-					
-	BoxLayout:
-		id: quicksettings  # Quick settings menu (bold, italics, font-size, etc)
-		height:'40dp'
-		size_hint_y:None
-		Button:
-			markup: True
-		    text: ('[b][color=000000]B[/color][/b]')
-		Button:
-			markup: True
-		    text: ('[i][color=000000]I[/color][/i]')
-		Button:
-		    markup: True
-		    text: ('[u][color=000000]U[/color][/u]')
-		Button:
-		# Label:
-			
+            Carousel:
+                loop: False
+                #size_hint_x: .85
+                ScrollView:
+                    id: scrlv
+                    size_hint_x: 1
+                    TextInput:
+                        on_text:
+                        size_hint: 1, None
+                        height: max(self.minimum_height, scrlv.height)
+
+    BoxLayout:
+        id: quicksettings  # Quick settings menu (bold, italics, font-size, etc)
+        height:'40dp'
+        size_hint_y:None
+        Button:
+            markup: True
+            text: ('[b][color=000000]B[/color][/b]')
+        Button:
+            markup: True
+            text: ('[i][color=000000]I[/color][/i]')
+        Button:
+            markup: True
+            text: ('[u][color=000000]U[/color][/u]')
+
 <MyDrop>:
-	Button:
-		text: 'Notes'
-		size_hint_y: None
-		height: 40
-		on_release: root.manager.current = 'home'
-	Button:
-		text: 'To-do'
-		size_hint_y: None
-		height: 40
-		on_release: root.manager.current = 'todo'
-	Button:
-		text: 'Sketch'
-		size_hint_y: None
-		height: 40
-		on_release: root.sm.current = 'sketch'
+    Button:
+        text: 'Notes'
+        size_hint_y: None
+        height: 40
+        on_release: root.manager.current = 'home'
+    Button:
+        text: 'To-do'
+        size_hint_y: None
+        height: 40
+        on_release: root.manager.current = 'todo'
+    Button:
+        text: 'Sketch'
+        size_hint_y: None
+        height: 40
+        on_release: root.sm.current = 'sketch'
