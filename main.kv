@@ -37,11 +37,11 @@
             orientation: 'vertical'
             ListView:
                 adapter: ListAdapter(data=app.data, cls=Factory.NoteListItem, args_converter=app.args_converter)
-            Button:
-                text: 'Home'
-                size_hint_y: None
-                height: '40dp'
-                on_release: app.go_notes()
+#            Button:
+#               text: 'Home'
+#                size_hint_y: None
+#                height: '40dp'
+#                on_release: app.go_notes()
 
         BoxLayout:
             orientation: 'vertical'
@@ -53,9 +53,10 @@
                 padding: '5dp'
 
                 Button:
-                    text: "Settings"
-                    size_hint_x: 0.1
-                    on_release: app.open_settings()
+                    text: "<"
+                    size_hint_x: None
+                    width: self.height
+                    on_release: app.go_notes()
                 LabelTextInput:
                     text: root.note_title
                     font_size: '16sp'
