@@ -22,7 +22,7 @@ from kivy.garden.navigationdrawer import NavigationDrawer
 import json
 from settingsjson import general_settings
 
-Builder.load_file('main.kv')   # keep main.kv in the same directory
+Builder.load_file('ideas.kv')   # keep main.kv in the same directory
 
 class NewTextInput(FloatLayout):
 
@@ -91,7 +91,7 @@ class Notes(Screen):
                 'note_content': item['content'],
                 'note_title': item['title']}
 
-class MyApp(App):
+class IdeasApp(App):
     
     data = ListProperty()
 
@@ -182,4 +182,4 @@ class MyApp(App):
         return join(self.user_data_dir, 'note.json')
 
 if __name__ == '__main__':
-    MyApp().run()
+    IdeasApp().run()
