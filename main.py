@@ -24,6 +24,7 @@ from settingsjson import general_settings
 
 Builder.load_file('ideas.kv')   # keep main.kv in the same directory
 
+
 class NewTextInput(FloatLayout):
 
     text = StringProperty()
@@ -58,9 +59,11 @@ class NewTextInput(FloatLayout):
             self.text = textinput.text
             self.view()
 
+
 class MyDrop(DropDown):
     for i in range(5):
         print i
+
 
 class NoteView(Screen):
 
@@ -76,10 +79,12 @@ class NoteView(Screen):
                 'note_content': item['content'],
                 'note_title': item['title']}
 
+
 class NoteListItem(BoxLayout):
 
     note_title = StringProperty()
     note_index = NumericProperty()
+
 
 class Notes(Screen):
 
@@ -91,7 +96,12 @@ class Notes(Screen):
                 'note_content': item['content'],
                 'note_title': item['title']}
 
+<<<<<<< Updated upstream
 class IdeasApp(App):
+=======
+
+class MyApp(App):
+>>>>>>> Stashed changes
     
     data = ListProperty()
 
