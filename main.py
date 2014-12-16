@@ -68,21 +68,24 @@ class NoteView(Screen):
     note_index = NumericProperty()
     note_title = StringProperty()
     note_content = StringProperty()
+    
+    notes = BoxLayout()
 
     data = ListProperty()
 
-    @staticmethod
     def args_converter(self, row_index, item):
         return{
                 'note_index': row_index,
                 'note_content': item['content'],
                 'note_title': item['title']}
 
-    @staticmethod
-    def start_search(self):
-        self.search = TextInput(height='40px')
-        root.notes.add_widget(self.Isearch)
-
+    def searchbar(self):
+        search = self.ids.notes 
+        search_bar = TextInput(
+                focus=True,
+                size_hint=(.5, .1),
+                pos_hint={'x':.25, 'y':.5})
+        search.add_widget(search_bar)
 
 class NoteListItem(BoxLayout):
 

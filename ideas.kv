@@ -43,51 +43,51 @@
 #                height: '40dp'
 #                on_release: app.go_notes()
 
-        BoxLayout:
-            orientation: 'vertical'
+        FloatLayout:
             id: notes
             BoxLayout:
-                orientation: 'horizontal'
-                size_hint_y: None
-                height: '40dp'
-                padding: '5dp'
+                orientation: 'vertical'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: '40dp'
+                    padding: '5dp'
 
-                Button:
-                    text: "<"
-                    size_hint_x: None
-                    width: self.height
-                    on_release: app.go_notes()
-                LabelTextInput:
-                    text: root.note_title
-                    font_size: '16sp'
-                    multiline: False
-                    on_text: root.note_title = self.text
-                Button:
-                    text: '-'
-                    size_hint_x: None
-                    width: self.height
-                    on_release: app.del_note(root.note_index)
+                    Button:
+                        text: "<"
+                        size_hint_x: None
+                        width: self.height
+                        on_release: app.go_notes()
+                    LabelTextInput:
+                        text: root.note_title
+                        font_size: '16sp'
+                        multiline: False
+                        on_text: root.note_title = self.text
+                    Button:
+                        text: '-'
+                        size_hint_x: None
+                        width: self.height
+                        on_release: app.del_note(root.note_index)
 
-            BoxLayout:
-                height: '40dp'
-                size_hint_y:None
-                Button:
-                    markup: True
-                    text: ('[b][color=000000]B[/color][/b]')
-                Button:
-                    markup: True
-                    text: ('[i][color=000000]I[/color][/i]')
-                Button:
-                    markup: True
-                    text: ('[u][color=000000]U[/color][/u]')
-                Button:
-                    text: 'Search'
-                    on_release: root.start_search(self)
+                RstTextInput:
+                    text: root.note_content
+                    on_text: root.note_content = self.text
 
-            RstTextInput:
-                text: root.note_content
-                on_text: root.note_content = self.text
-
+                BoxLayout:
+                    height: '40dp'
+                    size_hint_y:None
+                    Button:
+                        markup: True
+                        text: ('[b][color=000000]B[/color][/b]')
+                    Button:
+                        markup: True
+                        text: ('[i][color=000000]I[/color][/i]')
+                    Button:
+                        markup: True
+                        text: ('[u][color=000000]U[/color][/u]')
+                    Button:
+                        text: 'Search'
+                        on_release: root.searchbar()
 
 <NoteListItem>:
     height: '48dp'
