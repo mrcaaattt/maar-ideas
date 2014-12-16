@@ -22,6 +22,7 @@ from kivy.garden.navigationdrawer import NavigationDrawer
 import json
 from settingsjson import general_settings
 
+
 class NewTextInput(FloatLayout):
 
     text = StringProperty()
@@ -56,9 +57,11 @@ class NewTextInput(FloatLayout):
             self.text = textinput.text
             self.view()
 
+
 class MyDrop(DropDown):
     for i in range(5):
         print i
+
 
 class NoteView(Screen):
 
@@ -68,16 +71,24 @@ class NoteView(Screen):
 
     data = ListProperty()
 
+    @staticmethod
     def args_converter(self, row_index, item):
         return{
                 'note_index': row_index,
                 'note_content': item['content'],
                 'note_title': item['title']}
 
+    @staticmethod
+    def start_search(self):
+        self.search = TextInput(height='40px')
+        root.notes.add_widget(self.Isearch)
+
+
 class NoteListItem(BoxLayout):
 
     note_title = StringProperty()
     note_index = NumericProperty()
+
 
 class Notes(Screen):
 
@@ -88,6 +99,7 @@ class Notes(Screen):
                 'note_index': row_index,
                 'note_content': item['content'],
                 'note_title': item['title']}
+
 
 class IdeasApp(App):
     
