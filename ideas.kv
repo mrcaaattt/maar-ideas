@@ -37,11 +37,6 @@
             orientation: 'vertical'
             ListView:
                 adapter: ListAdapter(data=app.data, cls=Factory.NoteListItem, args_converter=app.args_converter)
-#            Button:
-#               text: 'Home'
-#                size_hint_y: None
-#                height: '40dp'
-#                on_release: app.go_notes()
 
         FloatLayout:
             id: notes
