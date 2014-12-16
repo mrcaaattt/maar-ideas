@@ -16,6 +16,7 @@ from kivy.uix.button import Button
 from kivy.uix.accordion import Accordion, AccordionItem
 from kivy.uix.settings import SettingsWithSidebar
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
+from kivy.uix.popup import Popup
 
 from kivy.garden.navigationdrawer import NavigationDrawer
 
@@ -76,11 +77,9 @@ class NoteView(Screen):
 
     def searchbar(self):
         search = self.ids.notes 
-        search_bar = TextInput(
-                focus=True,
-                size_hint=(.5, .08),
-                pos_hint={'x':.25, 'y':.5})
-        search.add_widget(search_bar)
+        search_bar = ModalView(size_hint=(0.5, 0.08))
+        search_bar.add_widget(TextInput(focus=True))
+        search_bar.open()
 
 class NoteListItem(BoxLayout):
 
