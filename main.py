@@ -87,14 +87,7 @@ class NoteListItem(BoxLayout):
     note_index = NumericProperty()
 
 class Notes(Screen):
-
-    data = ListProperty()
-
-    def args_converter(self, row_index, item):
-        return {
-                'note_index': row_index,
-                'note_content': item['content'],
-                'note_title': item['title']}
+    pass
 
 class IdeasApp(App):
     

@@ -101,8 +101,11 @@
             height: '40dp'
             padding: '5dp'
             Button:
-                text: 'Settings'
-                size_hint_x: 0.1
+                size_hint_x: None
+                width: self.height
+                background_normal: 'data/settings.png'
+                background_down: 'data/settings_pressed.png'
+                border: 0, 0, 0, 0
                 on_release: app.open_settings()
             Label:
                 text: 'Notes'
