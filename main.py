@@ -77,9 +77,11 @@ class NoteView(Screen):
 
     def searchbar(self):
         search = self.ids.notes 
-#        search_bar = ModalView(size_hint=(0.5, 0.08))
-        search.add_widget(TextInput(focus=True))
-#        search_bar.open()
+        search_bar = BoxLayout(size_hint_y=0.1, orientation='horizontal')
+        search_bar.add_widget(Button(text='Button'))
+        search_bar.add_widget(TextInput(focus=True))
+        search_bar.add_widget(Label(text='Number(?)'))
+        search.add_widget(search_bar)
 
 class NoteListItem(BoxLayout):
 
